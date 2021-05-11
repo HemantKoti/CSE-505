@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lambda Calculus Simulator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+<style>
+.column {
+  float: left;
+  width: 40%;
+}
+.column1 {
+  float: left;
+  width: 5%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<body>
+
+<div class="container">
+
+	<h1><a href="."> Lambda Calculus Simulator </a></h1>
+	</br>
+	<div class="row">
+  <div class="column">
+  
+   <form action="upload" enctype="multipart/form-data" method="POST">
+                <div class="input-group">
+               
+                <input name="file" type="file"  class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="submit">Upload Definition File!</button>
+                    </span>
+                   
+            </div>
+             </form>
+  <h3>Editor</h3>
+   <form action="add" method="POST">
+			<div class="form-group">
+                                <div class="form-group" >
+				<textarea name="editor"  id="editor" class="form-control"  rows="10">~w</textarea>
+			</div>
+                                    
+                                <button id="send" class="btn btn-primary">Add to database</button>
+				<a class="btn btn-primary" target="_blank" href="http://www.cse.buffalo.edu/LRG/PDF/LambdaNotes.pdf" > Notes </a>
+				<a class="btn btn-primary" target="_blank" href="http://www.cse.buffalo.edu/LRG/PDF/Lambda.mp4" > Video </a>
+				
+			</div>
+			</form>
+		
+  </div>
+  <div class="column1"></br> </div>
+  <div class="column">
+  </br> </br> </br>
+   <form action="run" method="POST" class="form-inline">
+       <div class="input-group">
+       <div class="form-group">
+                                <label class="form-control btn-normal" for="strategy">Reduction strategy:</label> <select name="strategy" id="strategy" class="form-control btn-normal dropdown-toggle" >
+  
+  <option value="beta">leftmost</option>
+  <option value="normal">left-innermost</option>
+</select> </div> </br> </br>
+<div class="form-group">
+<label class="form-control btn-normal" for="command"><b>Command:</b></label> 
+<select name="command" id="command" class=" form-control input-group btn-normal dropdown-toggle" >
+  <option value="norm">norm</option>
+  <option value="derive">derive</option>
+  <option value="subst">subst</option>
+  <option value="alpha">alpha</option>
+  <option value="let">let</option>
+  
+</select>    <input type="text"  name="content" class="form-control btn-normal " placeholder="Input here"/> </div> </br> </br>
+
+ <input type="hidden"  name="data" value="~w"  />
+                                   
+                                    <button id="send" class="btn btn-primary">Execute</button>
+			</form>	
+		 
+  <h3>Output</h3>
+  <textarea  style="border: none" cols=100 rows="8" id="output">~w</textarea>
+  </div>
+</div>
+	
+	
+	
+    
+    
+        
+</div>
+
+</body>
+</html>

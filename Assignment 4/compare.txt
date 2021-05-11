@@ -1,0 +1,38 @@
+ADD
+
+((add 0) 0)			Number of steps: 9 , for both LI and LO
+((add 1) 2)			Number of steps: 9, for both LI and LO
+((add 2) 3)			Number of steps: 9 , for both LI and LO
+((add 1) 3)			Number of steps: 9 , for both LI and LO
+((add 3) 4)			Number of steps: 9 , for both LI and LO
+((add 100) 200)			Number of steps: 9 , for both LI and LO
+	
+
+And the number of steps stays constant with the number of inputs in both of the strategies. For the given number of inputs, it replaces free occurrences of arguments and β reduction strips the outer lambda expressions.
+f(n) = 9 for both Leftmost and Left-innermost in this case, which is a constant.
+Both LI and LO here results in the same number of steps regardless of the size of the input and thus we can conclude that choosing either one approach for performing "add" would result in similar speed of execution time.
+
+TIMES
+Leftmost(LO)
+
+((times 1) 1)				Number of steps: 8, where n1 = 1
+((times 2) 1)				Number of steps: 11, where n2 = 2
+((times 3) 1)				Number of steps: 14, where n3 = 3
+((times 4) 1)				Number of steps: 17, where n4 = 4
+((times 5) 1)				Number of steps: 20, where n5 = 5
+And the number of steps increases by 3 with the number of inputs in this strategy
+f(n) = 8 + 3(n-1).
+ 
+Left-innermost(LI)
+
+((times 1) 1)				Number of steps: 8, where n1 = 1
+((times 2) 1)				Number of steps: 8, where n2 = 2
+((times 3) 1)				Number of steps: 8, where n3 = 3
+((times 4) 1)				Number of steps: 8, where n4 = 4
+((times 5) 1)				Number of steps: 8, where n5 = 5
+And the number of steps stays constant with the number of inputs in this strategy
+f(n) = 8
+
+For times, Left-innermost should be preferred as its execution steps is a constant and is faster than Leftmost.
+
+In comparing LI and LO for the "times" operation, we can observe that performing left-innermost results in a constant time execution with 8 steps regardless of the input size. But, performing times operation with LO approach will result in more steps as the size of the input grows. Thus, performing LI in this case will be the more desirable as compared to LO as it will result in faster execution time.

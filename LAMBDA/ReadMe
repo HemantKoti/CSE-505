@@ -1,0 +1,16 @@
+To load files:
+
+?- [main].
+
+To start server:
+
+?-server(8080).
+
+Point your browser to localhost:8080 and proceed:
+
+*  Upload the 'defs.txt' file provided in this directory and add it
+to the database.  There are some predefined functions there that you can use.
+
+*  You may try out different Commands, such as subst, derive, norm, etc.
+
+You can access some Notes on Lambda Calculus by clicking on the 'Notes' button.

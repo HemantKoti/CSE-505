@@ -1,0 +1,57 @@
+% Boolean operations
+
+let true = Lx.Ly.x
+let false = Lx.Ly.y
+let not = Lb.((b false) true)
+let if = Lx.x
+let and = Lx.Ly.(((if x) y) false)
+let or = Lx.Ly.(((if x) true) y)
+
+% Arithmetic over Church Numerals
+
+let zero = 0
+let is0 = Ln.((n Lx.false) true)
+let incr = Ln.Lf.Lx.((n f) (f x))
+let add = Ln1.Ln2.Lf.Lx.((n1 f) ((n2 f) x))
+let times = Ln1.Ln2.Lf.(n1 (n2 f))
+let exp = Ln1.Ln2.(n2 n1)
+
+% The decrement function (i.e., opposite of incr)
+
+let pair = Lx1.Lx2.Lc.((c x1) x2)
+let left = Lc.(c true)
+let right = Lc.(c false)
+let pmap = Lx1.((pair (incr (left x1))) (left x1))
+let decr= Lx1.(right ((x1 pmap) ((pair zero) zero)))
+
+% Simple operations on lists
+
+let list = Lf.Lx.((f tom) ((f ding) ((f hari) x)))
+let nonempty = Lq.((q false) true)
+let size = Lq.Lf.Lx.((q Lx.f) x)
+let insert = Lq.Le.Lf.Lx.((q f) ((f e) x))
+
+% hd is easy, tl is hard!
+
+let hd = Lq.((q true) a)
+let tl = Lq.q
+ 
+% Recursion
+
+let Y = Lf.(Lx.(f (x x)) Lx.(f (x x)))
+let Fact = Lf.Ln.(((if (is0 n)) 1) ((times n) (f (decr n))))
+let fact = (Y Fact)
+
+let Eq = Lf.Ln1.Ln2.(((if (is0 n1)) (is0 n2)) 
+                          (((if (is0 n2)) false) ((f (decr n1)) (decr n2))))
+let eq = (Y Eq)
+
+let Remove = Lr.Lq.Lv.(((if ((eq (hd q)) v)) 
+                         (tl q))
+                         ((insert (hd q))
+                                   ((r (tl q)) v)))
+
+let remove = (Y Remove)
+
+                         
+#

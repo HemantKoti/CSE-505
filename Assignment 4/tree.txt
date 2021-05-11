@@ -1,0 +1,12 @@
+% Arithmetic over Church Numerals
+
+let add = Ln1.Ln2.Lf.Lx.((n1 f) ((n2 f) x))
+
+% node(node(node(leaf(NY), leaf(PA)), leaf(MA)), node(leaf(OH), leaf(CT)))
+
+let tree = Ln.Ll.((n ((n ((n (l NY)) (l PA))) (l MA))) ((n (l OH)) (l CT)))
+
+let leafcount = Lt.Ln.Ll.((t add) Lx.1)
+
+                         
+#
